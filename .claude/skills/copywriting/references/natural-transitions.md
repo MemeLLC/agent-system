@@ -1,1 +1,0 @@
-/Users/nash/dev/production/meme/project-template/.agents/skills/copywriting/references/natural-transitions.md

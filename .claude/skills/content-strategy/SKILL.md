@@ -1,1 +1,0 @@
-/Users/nash/dev/production/meme/project-template/.agents/skills/content-strategy/SKILL.md

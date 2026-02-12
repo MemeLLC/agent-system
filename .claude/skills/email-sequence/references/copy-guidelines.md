@@ -1,1 +1,0 @@
-/Users/nash/dev/production/meme/project-template/.agents/skills/email-sequence/references/copy-guidelines.md
