@@ -1,0 +1,1 @@
+/Users/nash/dev/production/meme/project-template/.agents/skills/seo-audit/SKILL.md
