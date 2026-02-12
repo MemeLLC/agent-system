@@ -17,6 +17,7 @@ Claude Code / Codex など各AIエージェントが会話開始時に自動で�
 |--------|------|---------------|
 | **product-marketing-context** | プロダクトのポジショニング・ターゲット・メッセージングなどの基本情報をまとめたコンテキストファイルを作成・更新する | 他のマーケティングスキルを使う前の初期セットアップ時。プロダクト情報が変わった時の更新時 |
 | **market-research** | Web検索とブラウザ操作を活用し、市場調査・競合分析・法規制・価格・トレンドを段階的に調査する | 新規事業・新製品・新サービスの立ち上げ前にリサーチが必要な時 |
+| **x-search-grok** | xAI API（Grok）を使ってX(Twitter)のリアルタイム検索・トレンド分析・投稿ネタ出しを行う | X検索、Xのトレンド調査、投稿ネタ出し、ソーシャルリスニング、競合のSNS分析時 |
 
 ### コピーライティング・コンテンツ
 
@@ -113,3 +114,5 @@ Claude Code / Codex など各AIエージェントが会話開始時に自動で�
 | 広告で集客する | `paid-ads` → `landing-page-composition` → `copywriting` → `ab-test-setup` |
 | 既存ページを改善する | `page-cro` → `copy-editing` → `ab-test-setup` → `analytics-tracking` |
 | メールで育成する | `email-sequence` → `copywriting` → `analytics-tracking` |
+| Xでトレンドを掴んで投稿する | `x-search-grok` → `social-content` |
+| SNSリサーチから記事を書く | `x-search-grok`（context research） → `content-strategy` → `copywriting` |

@@ -1,0 +1,1 @@
+/Users/nash/dev/production/meme/project-template/.agents/skills/x-search-grok/references/context_pack_template.md
