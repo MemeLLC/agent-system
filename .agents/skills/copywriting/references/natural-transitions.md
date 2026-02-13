@@ -2,8 +2,6 @@
 
 読者をコンテンツ内で迷わせないための接続フレーズ集。適切な道しるべは可読性、エンゲージメント、検索エンジンの構造理解を高めます。
 
-参考: University of Manchester Academic Phrasebank (2023), Plain English Campaign, web content best practices
-
 ---
 
 ## 構成の予告
@@ -248,5 +246,3 @@
 - 「〜の領域で言えば...」
 - 「ここで疑問になるのは...」
 - 「では掘り下げてみましょう...」
-
-AI らしさの兆候一覧は seo-audit スキルの `references/ai-writing-detection.md` を参照。
