@@ -1,9 +1,8 @@
 {
   "name": "agent-system",
   "version": "1.0.0",
-  "devDependencies": {
-    "@playwright/test": "^1.58.2",
-    "@types/node": "^25.2.3"
+  "dependencies": {
+    "playwright-core": "^1.58.2"
   },
   "scripts": {}
 }
