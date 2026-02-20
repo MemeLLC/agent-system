@@ -11,13 +11,13 @@ Web検索（WebSearch / WebFetch）とブラウザ自動操作（Claude in Chrom
 
 以下の5ステップを順番に実行する。各ステップの詳細はreferencesファイルを参照すること。
 
-0. **Ground Zero リサーチ（前提知識調査）** → [references/ground-zero-research.md](references/ground-zero-research.md)
+0. **Ground Zero リサーチ（前提知識調査）** → `industry-landscape` スキルを使用
 1. **市場調査** → [references/market-research.md](references/market-research.md)
 2. **競合分析** → [references/competitor-analysis.md](references/competitor-analysis.md)
 3. **法規制・公的支援** → [references/regulatory-research.md](references/regulatory-research.md)
 4. **価格調査** → [references/pricing-research.md](references/pricing-research.md)
 
-**Step 0（Ground Zero リサーチ）は全ての調査の前に必ず実行すること。** このステップで業界の基本構造、専門用語、ビジネスモデル、バリューチェーン、顧客構造、規制環境、市場の数字感覚を先に把握することで、後続ステップの検索クエリの精度と調査の深さが格段に向上する。
+**Step 0（Ground Zero リサーチ）は全ての調査の前に必ず実行すること。** `industry-landscape` スキルを呼び出して実行する。このステップで業界の基本構造、専門用語、ビジネスモデル、バリューチェーン、顧客構造、規制環境、市場の数字感覚を先に把握することで、後続ステップの検索クエリの精度と調査の深さが格段に向上する。
 
 ユーザーが特定の領域のみを依頼した場合でも、Step 0は省略せず実行する。ただし、同一業界について過去にGround Zeroリサーチ済みのファイルが存在する場合は、その内容を確認し、再調査の必要がなければスキップしてよい。
 
@@ -149,56 +149,7 @@ research/
 
 #### 0-ground-zero.md
 
-```markdown
-# [調査テーマ] 前提知識（Ground Zero リサーチ）
-
-調査日: YYYY-MM-DD
-
----
-
-## 業界概要
-- 業界の定義と範囲
-- 歴史的背景
-- 業界の成熟度
-
-## 用語集
-| 用語 | 定義 | 補足 |
-|------|------|------|
-（最低20〜30語）
-
-## ビジネスモデル
-- 主要なビジネスモデル
-- 収益構造とお金の流れ
-- 価格帯・利益率の水準
-
-## 業界構造
-- バリューチェーン
-- 主要プレイヤーとシェア
-- 競争環境の特徴
-
-## 顧客構造
-- 主要セグメント
-- 意思決定プロセス
-- 購買の特徴
-
-## 規制環境
-- 主要な法規制
-- 広告表現の制約
-
-## 市場データ
-| 指標 | 数値 | 出典 | 年度 |
-|------|------|------|------|
-
-## 知識ギャップ（後続ステップで重点調査すべき項目）
-- [未解明の論点リスト]
-
-## 示唆・考察
-[前提知識調査から導かれる、後続リサーチへの示唆]
-
-## 参照ソース
-| # | サイト名 | URL |
-|---|----------|-----|
-```
+`industry-landscape` スキルの出力テンプレートに従う。
 
 #### 1〜4の各ステップファイル（共通形式）
 
