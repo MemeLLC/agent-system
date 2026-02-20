@@ -25,10 +25,10 @@ agent-system/
 │   └── strategy/             # 戦略ドキュメント・意思決定の記録
 |   └── meetings/             # 会議ドキュメント・会議の記録
 │
-├── apps/                     # プログラミング成果物
+├── dev/                      # プログラミング成果物
 │   │                         # LP、Webアプリ、ホームページ、サーバーなど
 │   │                         # 各アプリは独立したサブディレクトリとして管理
-│   └── <app-name>/           # 例: lp-product-a/, homepage/, api-server/
+│   └── <project-name>/       # 各種開発関連プロジェクト（モノレポ推奨）
 │
 ├── .claude/                  # Claude Code 用設定（.agents/ へのシンボリックリンク）
 │   ├── CLAUDE.md → ../.agents/INSTRUCTIONS.md
@@ -128,30 +128,9 @@ agent-system/
 | スキル | 概要 | 使うタイミング |
 |--------|------|---------------|
 | **image-generation** | AI（Gemini）を使って画像を生成・編集する。日本語テキスト入りの画像にも対応 | サムネイル、バナー、アイキャッチ、インフォグラフィック、商品画像が必要な時 |
-| **remotion-best-practices** | Remotion（Reactベースの動画制作）のベストプラクティスを提供する | Remotionで動画を作る時。字幕、アニメーション、FFmpeg操作など |
 
 ### メタ・拡張
 
 | スキル | 概要 | 使うタイミング |
 |--------|------|---------------|
 | **skill-creator** | 新しいスキルの作成や既存スキルの拡張をガイドする | 独自のスキルを追加してClaudeの能力を拡張したい時 |
-
----
-
-## ツール連携 (`tools/`)
-
-`tools/integrations/` には外部サービスとの連携ガイドが格納されている。スキル実行時に対応するツールが必要になった場合に参照する。
-
-| カテゴリ | ツール |
-|----------|--------|
-| Analytics | GA4, Adobe Analytics |
-| SEO | Google Search Console |
-| CRM | HubSpot, Salesforce |
-| Payments | Stripe |
-| Email | Mailchimp, Resend |
-| Ads | Google Ads, Meta Ads, LinkedIn Ads, TikTok Ads |
-| Automation | Zapier |
-| Commerce | Shopify |
-| CMS | WordPress |
-
-詳細は各ガイドファイル（`tools/integrations/*.md`）と `tools/REGISTRY.md` を参照。

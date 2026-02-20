@@ -1,1 +1,0 @@
-../../../.agents/tools/integrations/adobe-analytics.md

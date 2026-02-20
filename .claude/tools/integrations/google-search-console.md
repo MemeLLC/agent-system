@@ -1,1 +1,0 @@
-../../../.agents/tools/integrations/google-search-console.md
