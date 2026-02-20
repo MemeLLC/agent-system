@@ -1,11 +1,11 @@
 ---
 name: market-research
-description: Web検索とブラウザ自動操作を活用した包括的な市場調査スキル。競合分析、法規制調査、価格調査を段階的に実施する。ユーザーが新規事業、新製品、新サービスの立ち上げに際してリサーチを必要とする場合や、「競合を分析して」「法規制を調べて」「価格を調べて」などのリクエストに対して使用する。
+description: Web検索とブラウザ自動操作を活用した包括的な市場調査スキル。競合分析と法規制調査を段階的に実施する。ユーザーが新規事業、新製品、新サービスの立ち上げに際してリサーチを必要とする場合や、「競合を分析して」「法規制を調べて」などのリクエストに対して使用する。
 ---
 
 # マーケットリサーチ
 
-Web検索（WebSearch / WebFetch）とブラウザ自動操作（Claude in Chrome）を組み合わせ、競合分析・法規制・価格調査の3領域を段階的に実施する。
+Web検索（WebSearch / WebFetch）とブラウザ自動操作（Claude in Chrome）を組み合わせ、競合分析・法規制の2領域を段階的に実施する。
 
 ## 前提条件
 
@@ -17,11 +17,10 @@ Web検索（WebSearch / WebFetch）とブラウザ自動操作（Claude in Chrom
 
 ## リサーチの全体フロー
 
-以下の3ステップを順番に実行する。各ステップの詳細はreferencesファイルを参照すること。
+以下の2ステップを順番に実行する。各ステップの詳細はreferencesファイルを参照すること。
 
 1. **競合分析** → [references/competitor-analysis.md](references/competitor-analysis.md)
 2. **法規制・公的支援** → [references/regulatory-research.md](references/regulatory-research.md)
-3. **価格調査** → [references/pricing-research.md](references/pricing-research.md)
 
 ## 検索の基本ルール
 
@@ -114,7 +113,6 @@ Step 2: WebFetchで上位の有望なURLの中身を読み込む → 詳細な�
 2. 調査完了後、直ちに `1-competitor-analysis.md` に書き出す
 3. ステップ2（法規制・公的支援）の調査を実施する
 4. 調査完了後、直ちに `2-regulatory-research.md` に書き出す
-5. 以降、各ステップ完了のたびに同様に個別ファイルへ書き出す
 
 ### 網羅的な記述
 
@@ -135,8 +133,7 @@ Step 2: WebFetchで上位の有望なURLの中身を読み込む → 詳細な�
 ```
 research/
 ├── 1-competitor-analysis.md   # 競合分析
-├── 2-regulatory-research.md   # 法規制・関連法令
-└── 3-pricing-research.md      # 価格調査
+└── 2-regulatory-research.md   # 法規制・関連法令
 ```
 
 ### ソースURLの記載
