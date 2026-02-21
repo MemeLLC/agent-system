@@ -109,6 +109,44 @@ node $SKILL_DIR/../playwright-browser/scripts/browser.mjs screenshot <LP URL> --
 - 見つかったアカウントのフォロワー数、投稿頻度、直近の投稿傾向を確認する
 - レビューサイト、メディア掲載、プレスリリースの有無も確認する
 
+#### Google検索での可視性調査
+
+`playwright-browser` スキルを使用して、主要キーワードでのGoogle検索結果を調査する。自社がどのキーワードでどの順位に表示されるか（または表示されないか）を記録する。
+
+**Step 1: キーワードの選定**
+
+Phase 1 で得た情報をもとに、以下のカテゴリでキーワードを選定する:
+
+| カテゴリ | 例 |
+|---------|-----|
+| 指名検索（社名・サービス名） | `[会社名]`, `[サービス名]`, `[ブランド名]` |
+| サービスカテゴリ | `[業種] サービス`, `[提供内容] ツール` |
+| 課題・ニーズ系 | `[顧客の課題] 解決`, `[ニーズ] おすすめ` |
+| 地域系（該当する場合） | `[地域名] [サービスカテゴリ]` |
+
+ユーザーと相談し、調査する5〜10個のキーワードを決定する。
+
+**Step 2: 検索結果の取得とスクリーンショット**
+
+各キーワードについて、テキスト結果の取得とスクリーンショットの撮影を行う。
+
+```bash
+# テキスト結果の取得（上位10件）
+node $SKILL_DIR/../playwright-browser/scripts/browser.mjs search "[キーワード]" --results 10
+
+# 検索結果画面のスクリーンショット
+node $SKILL_DIR/../playwright-browser/scripts/browser.mjs interact "https://www.google.com/search?q=[キーワード]&hl=ja&gl=jp" \
+  --actions '[{"action":"wait","timeout":2000},{"action":"screenshot","path":"contexts/screenshots/business-profile/serp-[keyword-slug].png"}]'
+```
+
+**Step 3: 結果の記録**
+
+各キーワードについて以下を記録する:
+- 自社サイトの掲載順位（1ページ目に表示されない場合は「圏外」）
+- 上位に表示されている競合・サイト名
+- 広告枠への自社・競合の出稿有無
+- リッチリザルト（FAQ、レビュー等）の表示有無
+
 #### 広告運用の調査
 
 `playwright-browser` スキルで以下の広告ライブラリにアクセスし、自社の広告出稿状況を調査する。
@@ -157,6 +195,7 @@ contexts/
 └── screenshots/business-profile/            # スクリーンショット
     ├── hp-01.png                            # ホームページ
     ├── lp-01.png                            # ランディングページ
+    ├── serp-[keyword-slug].png              # Google検索結果
     ├── ad-01.png                            # 広告クリエイティブ
     └── ad-lp-01.png                         # 広告のLP
 ```
@@ -244,6 +283,19 @@ contexts/
 ### スクリーンショット
 - ホームページ: `screenshots/business-profile/hp-01.png`
 - LP: `screenshots/business-profile/lp-01.png`
+
+## Google検索での可視性
+
+### 調査キーワードと結果
+
+| # | キーワード | 自社順位 | 表示URL | 上位の競合 | 広告出稿 | スクリーンショット |
+|---|-----------|---------|---------|-----------|---------|-----------------|
+| 1 | [キーワード] | [順位 or 圏外] | [URL] | [1位: ○○, 2位: △△] | [自社: 有/無, 競合: 有/無] | `screenshots/business-profile/serp-[slug].png` |
+
+### 所見
+- [指名検索の状況]
+- [カテゴリ系キーワードでの位置づけ]
+- [競合との比較で気づいた点]
 
 ## マーケティング施策
 
