@@ -1,0 +1,276 @@
+{
+  "exportFormatVersion": 2,
+  "exportTime": "2026-02-22 00:00:00",
+  "containerVersion": {
+    "path": "accounts/{ACCOUNT_ID}/containers/{CONTAINER_ID}/versions/0",
+    "accountId": "{ACCOUNT_ID}",
+    "containerId": "{CONTAINER_ID}",
+    "containerVersionId": "0",
+    "name": "Initial Setup - LP",
+    "description": "GA4 + Clarity + Google Ads: ランディングページ向け構成（リード獲得CV）",
+    "container": {
+      "path": "accounts/{ACCOUNT_ID}/containers/{CONTAINER_ID}",
+      "accountId": "{ACCOUNT_ID}",
+      "containerId": "{CONTAINER_ID}",
+      "name": "{SITE_DOMAIN}",
+      "publicId": "{GTM_PUBLIC_ID}",
+      "usageContext": ["web"],
+      "fingerprint": "0",
+      "tagManagerUrl": ""
+    },
+    "tag": [
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "tagId": "1",
+        "name": "GA4 - Config",
+        "type": "googtag",
+        "parameter": [
+          { "type": "template", "key": "tagId", "value": "{{Const - GA4 Measurement ID}}" }
+        ],
+        "firingTriggerId": ["2147479573"],
+        "tagFiringOption": "oncePerEvent",
+        "monitoringMetadata": { "type": "map" },
+        "consentSettings": { "consentStatus": "notSet" },
+        "fingerprint": "0",
+        "parentFolderId": "10"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "tagId": "2",
+        "name": "Google Ads - Conversion Linker",
+        "type": "gclidw",
+        "parameter": [],
+        "firingTriggerId": ["2147479573"],
+        "tagFiringOption": "oncePerEvent",
+        "monitoringMetadata": { "type": "map" },
+        "consentSettings": { "consentStatus": "notSet" },
+        "fingerprint": "0",
+        "parentFolderId": "13"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "tagId": "3",
+        "name": "Clarity - Base",
+        "type": "cvt_CLARITY_TEMPLATE_ID",
+        "parameter": [
+          { "type": "template", "key": "projectId", "value": "{{Const - Clarity Project ID}}" }
+        ],
+        "firingTriggerId": ["2147479553"],
+        "tagFiringOption": "oncePerEvent",
+        "monitoringMetadata": { "type": "map" },
+        "consentSettings": { "consentStatus": "notSet" },
+        "fingerprint": "0",
+        "parentFolderId": "12"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "tagId": "4",
+        "name": "GA4 - Event - generate_lead",
+        "type": "gaawe",
+        "parameter": [
+          { "type": "tagReference", "key": "measurementId", "value": "GA4 - Config" },
+          { "type": "template", "key": "eventName", "value": "generate_lead" },
+          {
+            "type": "list",
+            "key": "eventParameters",
+            "list": [
+              {
+                "type": "map",
+                "map": [
+                  { "type": "template", "key": "name", "value": "form_name" },
+                  { "type": "template", "key": "value", "value": "{{DLV - form_name}}" }
+                ]
+              }
+            ]
+          }
+        ],
+        "firingTriggerId": ["1"],
+        "tagFiringOption": "oncePerEvent",
+        "monitoringMetadata": { "type": "map" },
+        "consentSettings": { "consentStatus": "notSet" },
+        "fingerprint": "0",
+        "parentFolderId": "10"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "tagId": "5",
+        "name": "Google Ads - Conversion - generate_lead",
+        "type": "awct",
+        "parameter": [
+          { "type": "template", "key": "conversionId", "value": "{{Const - Google Ads Conversion ID}}" },
+          { "type": "template", "key": "conversionLabel", "value": "{{Const - Google Ads Conversion Label - generate_lead}}" },
+          { "type": "boolean", "key": "enableConversionLinker", "value": "true" }
+        ],
+        "firingTriggerId": ["1"],
+        "tagFiringOption": "oncePerEvent",
+        "monitoringMetadata": { "type": "map" },
+        "consentSettings": { "consentStatus": "notSet" },
+        "fingerprint": "0",
+        "parentFolderId": "13"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "tagId": "6",
+        "name": "GA4 - Event - scroll",
+        "type": "gaawe",
+        "parameter": [
+          { "type": "tagReference", "key": "measurementId", "value": "GA4 - Config" },
+          { "type": "template", "key": "eventName", "value": "scroll" },
+          {
+            "type": "list",
+            "key": "eventParameters",
+            "list": [
+              {
+                "type": "map",
+                "map": [
+                  { "type": "template", "key": "name", "value": "percent_scrolled" },
+                  { "type": "template", "key": "value", "value": "{{Scroll Depth Threshold}}" }
+                ]
+              }
+            ]
+          }
+        ],
+        "firingTriggerId": ["2"],
+        "tagFiringOption": "unlimited",
+        "monitoringMetadata": { "type": "map" },
+        "consentSettings": { "consentStatus": "notSet" },
+        "fingerprint": "0",
+        "parentFolderId": "10"
+      }
+    ],
+    "trigger": [
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "triggerId": "1",
+        "name": "CE - form_submit",
+        "type": "customEvent",
+        "customEventFilter": [
+          {
+            "type": "equals",
+            "parameter": [
+              { "type": "template", "key": "arg0", "value": "{{_event}}" },
+              { "type": "template", "key": "arg1", "value": "form_submit" }
+            ]
+          }
+        ],
+        "fingerprint": "0",
+        "parentFolderId": "20"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "triggerId": "2",
+        "name": "Scroll - 25/50/75/100 Percent",
+        "type": "scrollDepth",
+        "parameter": [
+          { "type": "boolean", "key": "verticalThresholdOn", "value": "true" },
+          { "type": "template", "key": "verticalThresholdsPercent", "value": "25,50,75,100" },
+          { "type": "boolean", "key": "horizontalThresholdOn", "value": "false" },
+          { "type": "template", "key": "triggerStartOption", "value": "WINDOW_LOAD" }
+        ],
+        "fingerprint": "0",
+        "parentFolderId": "20"
+      }
+    ],
+    "variable": [
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "variableId": "1",
+        "name": "Const - GA4 Measurement ID",
+        "type": "c",
+        "parameter": [
+          { "type": "template", "key": "value", "value": "{GA4_MEASUREMENT_ID}" }
+        ],
+        "fingerprint": "0",
+        "parentFolderId": "10"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "variableId": "2",
+        "name": "Const - Clarity Project ID",
+        "type": "c",
+        "parameter": [
+          { "type": "template", "key": "value", "value": "{CLARITY_PROJECT_ID}" }
+        ],
+        "fingerprint": "0",
+        "parentFolderId": "12"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "variableId": "3",
+        "name": "Const - Google Ads Conversion ID",
+        "type": "c",
+        "parameter": [
+          { "type": "template", "key": "value", "value": "{GOOGLE_ADS_CONVERSION_ID}" }
+        ],
+        "fingerprint": "0",
+        "parentFolderId": "13"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "variableId": "4",
+        "name": "Const - Google Ads Conversion Label - generate_lead",
+        "type": "c",
+        "parameter": [
+          { "type": "template", "key": "value", "value": "{GOOGLE_ADS_CONVERSION_LABEL}" }
+        ],
+        "fingerprint": "0",
+        "parentFolderId": "13"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "variableId": "5",
+        "name": "DLV - form_name",
+        "type": "v",
+        "parameter": [
+          { "type": "template", "key": "name", "value": "form_name" },
+          { "type": "integer", "key": "dataLayerVersion", "value": "2" }
+        ],
+        "fingerprint": "0",
+        "parentFolderId": "20"
+      }
+    ],
+    "builtInVariable": [
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "pageUrl", "name": "Page URL" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "pageHostname", "name": "Page Hostname" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "pagePath", "name": "Page Path" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "referrer", "name": "Referrer" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "event", "name": "Event" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "clickElement", "name": "Click Element" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "clickClasses", "name": "Click Classes" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "clickId", "name": "Click ID" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "clickUrl", "name": "Click URL" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "clickText", "name": "Click Text" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "formElement", "name": "Form Element" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "formId", "name": "Form ID" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "formClasses", "name": "Form Classes" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "formUrl", "name": "Form URL" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "scrollDepthThreshold", "name": "Scroll Depth Threshold" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "scrollDepthUnits", "name": "Scroll Depth Units" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "scrollDepthDirection", "name": "Scroll Depth Direction" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "debugMode", "name": "Debug Mode" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "randomNumber", "name": "Random Number" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "containerId", "name": "Container ID" }
+    ],
+    "folder": [
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "folderId": "10", "name": "GA4", "fingerprint": "0" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "folderId": "12", "name": "Clarity", "fingerprint": "0" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "folderId": "13", "name": "Google Ads", "fingerprint": "0" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "folderId": "20", "name": "_Global", "fingerprint": "0" }
+    ],
+    "fingerprint": "0",
+    "tagManagerUrl": ""
+  }
+}

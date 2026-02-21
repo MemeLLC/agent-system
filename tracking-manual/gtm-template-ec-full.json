@@ -1,0 +1,609 @@
+{
+  "exportFormatVersion": 2,
+  "exportTime": "2026-02-22 00:00:00",
+  "containerVersion": {
+    "path": "accounts/{ACCOUNT_ID}/containers/{CONTAINER_ID}/versions/0",
+    "accountId": "{ACCOUNT_ID}",
+    "containerId": "{CONTAINER_ID}",
+    "containerVersionId": "0",
+    "name": "Initial Setup - EC Full",
+    "description": "GA4 + Clarity + Google Ads + Meta + TikTok + X: ECサイト全プラットフォーム構成",
+    "container": {
+      "path": "accounts/{ACCOUNT_ID}/containers/{CONTAINER_ID}",
+      "accountId": "{ACCOUNT_ID}",
+      "containerId": "{CONTAINER_ID}",
+      "name": "{SITE_DOMAIN}",
+      "publicId": "{GTM_PUBLIC_ID}",
+      "usageContext": ["web"],
+      "fingerprint": "0",
+      "tagManagerUrl": ""
+    },
+    "tag": [
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "tagId": "1",
+        "name": "GA4 - Config",
+        "type": "googtag",
+        "parameter": [
+          { "type": "template", "key": "tagId", "value": "{{Const - GA4 Measurement ID}}" }
+        ],
+        "firingTriggerId": ["2147479573"],
+        "tagFiringOption": "oncePerEvent",
+        "monitoringMetadata": { "type": "map" },
+        "consentSettings": { "consentStatus": "notSet" },
+        "fingerprint": "0",
+        "parentFolderId": "10"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "tagId": "2",
+        "name": "Google Ads - Conversion Linker",
+        "type": "gclidw",
+        "parameter": [],
+        "firingTriggerId": ["2147479573"],
+        "tagFiringOption": "oncePerEvent",
+        "monitoringMetadata": { "type": "map" },
+        "consentSettings": { "consentStatus": "notSet" },
+        "fingerprint": "0",
+        "parentFolderId": "13"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "tagId": "3",
+        "name": "Clarity - Base",
+        "type": "cvt_CLARITY_TEMPLATE_ID",
+        "parameter": [
+          { "type": "template", "key": "projectId", "value": "{{Const - Clarity Project ID}}" }
+        ],
+        "firingTriggerId": ["2147479553"],
+        "tagFiringOption": "oncePerEvent",
+        "monitoringMetadata": { "type": "map" },
+        "consentSettings": { "consentStatus": "notSet" },
+        "fingerprint": "0",
+        "parentFolderId": "12"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "tagId": "4",
+        "name": "Meta - Base",
+        "type": "cvt_META_PIXEL_TEMPLATE_ID",
+        "parameter": [
+          { "type": "template", "key": "pixelId", "value": "{{Const - Meta Pixel ID}}" }
+        ],
+        "firingTriggerId": ["2147479553"],
+        "tagFiringOption": "oncePerEvent",
+        "monitoringMetadata": { "type": "map" },
+        "consentSettings": { "consentStatus": "notSet" },
+        "fingerprint": "0",
+        "parentFolderId": "11"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "tagId": "5",
+        "name": "TikTok - Base",
+        "type": "cvt_TIKTOK_PIXEL_TEMPLATE_ID",
+        "parameter": [
+          { "type": "template", "key": "pixelId", "value": "{{Const - TikTok Pixel ID}}" }
+        ],
+        "firingTriggerId": ["2147479553"],
+        "tagFiringOption": "oncePerEvent",
+        "monitoringMetadata": { "type": "map" },
+        "consentSettings": { "consentStatus": "notSet" },
+        "fingerprint": "0",
+        "parentFolderId": "15"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "tagId": "6",
+        "name": "X - Base",
+        "type": "cvt_X_PIXEL_TEMPLATE_ID",
+        "parameter": [
+          { "type": "template", "key": "pixelId", "value": "{{Const - X Pixel ID}}" }
+        ],
+        "firingTriggerId": ["2147479553"],
+        "tagFiringOption": "oncePerEvent",
+        "monitoringMetadata": { "type": "map" },
+        "consentSettings": { "consentStatus": "notSet" },
+        "fingerprint": "0",
+        "parentFolderId": "16"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "tagId": "7",
+        "name": "GA4 - Event - view_item",
+        "type": "gaawe",
+        "parameter": [
+          { "type": "tagReference", "key": "measurementId", "value": "GA4 - Config" },
+          { "type": "template", "key": "eventName", "value": "view_item" }
+        ],
+        "firingTriggerId": ["1"],
+        "tagFiringOption": "oncePerEvent",
+        "monitoringMetadata": { "type": "map" },
+        "consentSettings": { "consentStatus": "notSet" },
+        "fingerprint": "0",
+        "parentFolderId": "14"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "tagId": "8",
+        "name": "GA4 - Event - add_to_cart",
+        "type": "gaawe",
+        "parameter": [
+          { "type": "tagReference", "key": "measurementId", "value": "GA4 - Config" },
+          { "type": "template", "key": "eventName", "value": "add_to_cart" }
+        ],
+        "firingTriggerId": ["2"],
+        "tagFiringOption": "oncePerEvent",
+        "monitoringMetadata": { "type": "map" },
+        "consentSettings": { "consentStatus": "notSet" },
+        "fingerprint": "0",
+        "parentFolderId": "14"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "tagId": "9",
+        "name": "GA4 - Event - purchase",
+        "type": "gaawe",
+        "parameter": [
+          { "type": "tagReference", "key": "measurementId", "value": "GA4 - Config" },
+          { "type": "template", "key": "eventName", "value": "purchase" }
+        ],
+        "firingTriggerId": ["3"],
+        "tagFiringOption": "oncePerEvent",
+        "monitoringMetadata": { "type": "map" },
+        "consentSettings": { "consentStatus": "notSet" },
+        "fingerprint": "0",
+        "parentFolderId": "14"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "tagId": "10",
+        "name": "Google Ads - Conversion - purchase",
+        "type": "awct",
+        "parameter": [
+          { "type": "template", "key": "conversionId", "value": "{{Const - Google Ads Conversion ID}}" },
+          { "type": "template", "key": "conversionLabel", "value": "{{Const - Google Ads Conversion Label - purchase}}" },
+          { "type": "template", "key": "conversionValue", "value": "{{DLV - ecommerce.value}}" },
+          { "type": "template", "key": "currencyCode", "value": "{{DLV - ecommerce.currency}}" },
+          { "type": "template", "key": "orderId", "value": "{{DLV - ecommerce.transaction_id}}" },
+          { "type": "boolean", "key": "enableConversionLinker", "value": "true" }
+        ],
+        "firingTriggerId": ["3"],
+        "tagFiringOption": "oncePerEvent",
+        "monitoringMetadata": { "type": "map" },
+        "consentSettings": { "consentStatus": "notSet" },
+        "fingerprint": "0",
+        "parentFolderId": "13"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "tagId": "11",
+        "name": "Meta - Event - ViewContent",
+        "type": "cvt_META_PIXEL_TEMPLATE_ID",
+        "parameter": [
+          { "type": "template", "key": "pixelId", "value": "{{Const - Meta Pixel ID}}" },
+          { "type": "template", "key": "eventName", "value": "ViewContent" }
+        ],
+        "firingTriggerId": ["1"],
+        "tagFiringOption": "oncePerEvent",
+        "monitoringMetadata": { "type": "map" },
+        "consentSettings": { "consentStatus": "notSet" },
+        "fingerprint": "0",
+        "parentFolderId": "11"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "tagId": "12",
+        "name": "Meta - Event - AddToCart",
+        "type": "cvt_META_PIXEL_TEMPLATE_ID",
+        "parameter": [
+          { "type": "template", "key": "pixelId", "value": "{{Const - Meta Pixel ID}}" },
+          { "type": "template", "key": "eventName", "value": "AddToCart" }
+        ],
+        "firingTriggerId": ["2"],
+        "tagFiringOption": "oncePerEvent",
+        "monitoringMetadata": { "type": "map" },
+        "consentSettings": { "consentStatus": "notSet" },
+        "fingerprint": "0",
+        "parentFolderId": "11"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "tagId": "13",
+        "name": "Meta - Event - Purchase",
+        "type": "cvt_META_PIXEL_TEMPLATE_ID",
+        "parameter": [
+          { "type": "template", "key": "pixelId", "value": "{{Const - Meta Pixel ID}}" },
+          { "type": "template", "key": "eventName", "value": "Purchase" },
+          { "type": "template", "key": "value", "value": "{{DLV - ecommerce.value}}" },
+          { "type": "template", "key": "currency", "value": "{{DLV - ecommerce.currency}}" },
+          { "type": "template", "key": "contents", "value": "{{CJS - Meta Pixel Contents}}" }
+        ],
+        "firingTriggerId": ["3"],
+        "tagFiringOption": "oncePerEvent",
+        "monitoringMetadata": { "type": "map" },
+        "consentSettings": { "consentStatus": "notSet" },
+        "fingerprint": "0",
+        "parentFolderId": "11"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "tagId": "14",
+        "name": "TikTok - Event - ViewContent",
+        "type": "cvt_TIKTOK_PIXEL_TEMPLATE_ID",
+        "parameter": [
+          { "type": "template", "key": "pixelId", "value": "{{Const - TikTok Pixel ID}}" },
+          { "type": "template", "key": "eventType", "value": "ViewContent" }
+        ],
+        "firingTriggerId": ["1"],
+        "tagFiringOption": "oncePerEvent",
+        "monitoringMetadata": { "type": "map" },
+        "consentSettings": { "consentStatus": "notSet" },
+        "fingerprint": "0",
+        "parentFolderId": "15"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "tagId": "15",
+        "name": "TikTok - Event - AddToCart",
+        "type": "cvt_TIKTOK_PIXEL_TEMPLATE_ID",
+        "parameter": [
+          { "type": "template", "key": "pixelId", "value": "{{Const - TikTok Pixel ID}}" },
+          { "type": "template", "key": "eventType", "value": "AddToCart" }
+        ],
+        "firingTriggerId": ["2"],
+        "tagFiringOption": "oncePerEvent",
+        "monitoringMetadata": { "type": "map" },
+        "consentSettings": { "consentStatus": "notSet" },
+        "fingerprint": "0",
+        "parentFolderId": "15"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "tagId": "16",
+        "name": "TikTok - Event - CompletePayment",
+        "type": "cvt_TIKTOK_PIXEL_TEMPLATE_ID",
+        "parameter": [
+          { "type": "template", "key": "pixelId", "value": "{{Const - TikTok Pixel ID}}" },
+          { "type": "template", "key": "eventType", "value": "CompletePayment" },
+          { "type": "template", "key": "value", "value": "{{DLV - ecommerce.value}}" },
+          { "type": "template", "key": "currency", "value": "{{DLV - ecommerce.currency}}" },
+          { "type": "template", "key": "contents", "value": "{{CJS - TikTok Pixel Contents}}" }
+        ],
+        "firingTriggerId": ["3"],
+        "tagFiringOption": "oncePerEvent",
+        "monitoringMetadata": { "type": "map" },
+        "consentSettings": { "consentStatus": "notSet" },
+        "fingerprint": "0",
+        "parentFolderId": "15"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "tagId": "17",
+        "name": "X - Event - Purchase",
+        "type": "cvt_X_PIXEL_TEMPLATE_ID",
+        "parameter": [
+          { "type": "template", "key": "pixelId", "value": "{{Const - X Pixel ID}}" },
+          { "type": "template", "key": "eventType", "value": "Purchase" },
+          { "type": "template", "key": "value", "value": "{{DLV - ecommerce.value}}" },
+          { "type": "template", "key": "currency", "value": "{{DLV - ecommerce.currency}}" },
+          { "type": "template", "key": "conversion_id", "value": "{{DLV - ecommerce.transaction_id}}" },
+          { "type": "template", "key": "contents", "value": "{{CJS - X Pixel Contents}}" }
+        ],
+        "firingTriggerId": ["3"],
+        "tagFiringOption": "oncePerEvent",
+        "monitoringMetadata": { "type": "map" },
+        "consentSettings": { "consentStatus": "notSet" },
+        "fingerprint": "0",
+        "parentFolderId": "16"
+      }
+    ],
+    "trigger": [
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "triggerId": "1",
+        "name": "CE - view_item",
+        "type": "customEvent",
+        "customEventFilter": [
+          {
+            "type": "equals",
+            "parameter": [
+              { "type": "template", "key": "arg0", "value": "{{_event}}" },
+              { "type": "template", "key": "arg1", "value": "view_item" }
+            ]
+          }
+        ],
+        "fingerprint": "0",
+        "parentFolderId": "20"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "triggerId": "2",
+        "name": "CE - add_to_cart",
+        "type": "customEvent",
+        "customEventFilter": [
+          {
+            "type": "equals",
+            "parameter": [
+              { "type": "template", "key": "arg0", "value": "{{_event}}" },
+              { "type": "template", "key": "arg1", "value": "add_to_cart" }
+            ]
+          }
+        ],
+        "fingerprint": "0",
+        "parentFolderId": "20"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "triggerId": "3",
+        "name": "CE - purchase",
+        "type": "customEvent",
+        "customEventFilter": [
+          {
+            "type": "equals",
+            "parameter": [
+              { "type": "template", "key": "arg0", "value": "{{_event}}" },
+              { "type": "template", "key": "arg1", "value": "purchase" }
+            ]
+          }
+        ],
+        "fingerprint": "0",
+        "parentFolderId": "20"
+      }
+    ],
+    "variable": [
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "variableId": "1",
+        "name": "Const - GA4 Measurement ID",
+        "type": "c",
+        "parameter": [
+          { "type": "template", "key": "value", "value": "{GA4_MEASUREMENT_ID}" }
+        ],
+        "fingerprint": "0",
+        "parentFolderId": "10"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "variableId": "2",
+        "name": "Const - Clarity Project ID",
+        "type": "c",
+        "parameter": [
+          { "type": "template", "key": "value", "value": "{CLARITY_PROJECT_ID}" }
+        ],
+        "fingerprint": "0",
+        "parentFolderId": "12"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "variableId": "3",
+        "name": "Const - Google Ads Conversion ID",
+        "type": "c",
+        "parameter": [
+          { "type": "template", "key": "value", "value": "{GOOGLE_ADS_CONVERSION_ID}" }
+        ],
+        "fingerprint": "0",
+        "parentFolderId": "13"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "variableId": "4",
+        "name": "Const - Google Ads Conversion Label - purchase",
+        "type": "c",
+        "parameter": [
+          { "type": "template", "key": "value", "value": "{GOOGLE_ADS_CONVERSION_LABEL_PURCHASE}" }
+        ],
+        "fingerprint": "0",
+        "parentFolderId": "13"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "variableId": "5",
+        "name": "Const - Meta Pixel ID",
+        "type": "c",
+        "parameter": [
+          { "type": "template", "key": "value", "value": "{META_PIXEL_ID}" }
+        ],
+        "fingerprint": "0",
+        "parentFolderId": "11"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "variableId": "6",
+        "name": "Const - TikTok Pixel ID",
+        "type": "c",
+        "parameter": [
+          { "type": "template", "key": "value", "value": "{TIKTOK_PIXEL_ID}" }
+        ],
+        "fingerprint": "0",
+        "parentFolderId": "15"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "variableId": "7",
+        "name": "Const - X Pixel ID",
+        "type": "c",
+        "parameter": [
+          { "type": "template", "key": "value", "value": "{X_PIXEL_ID}" }
+        ],
+        "fingerprint": "0",
+        "parentFolderId": "16"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "variableId": "8",
+        "name": "DLV - ecommerce",
+        "type": "v",
+        "parameter": [
+          { "type": "template", "key": "name", "value": "ecommerce" },
+          { "type": "integer", "key": "dataLayerVersion", "value": "2" }
+        ],
+        "fingerprint": "0",
+        "parentFolderId": "14"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "variableId": "9",
+        "name": "DLV - ecommerce.transaction_id",
+        "type": "v",
+        "parameter": [
+          { "type": "template", "key": "name", "value": "ecommerce.transaction_id" },
+          { "type": "integer", "key": "dataLayerVersion", "value": "2" }
+        ],
+        "fingerprint": "0",
+        "parentFolderId": "14"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "variableId": "10",
+        "name": "DLV - ecommerce.value",
+        "type": "v",
+        "parameter": [
+          { "type": "template", "key": "name", "value": "ecommerce.value" },
+          { "type": "integer", "key": "dataLayerVersion", "value": "2" }
+        ],
+        "fingerprint": "0",
+        "parentFolderId": "14"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "variableId": "11",
+        "name": "DLV - ecommerce.currency",
+        "type": "v",
+        "parameter": [
+          { "type": "template", "key": "name", "value": "ecommerce.currency" },
+          { "type": "integer", "key": "dataLayerVersion", "value": "2" }
+        ],
+        "fingerprint": "0",
+        "parentFolderId": "14"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "variableId": "12",
+        "name": "DLV - ecommerce.items",
+        "type": "v",
+        "parameter": [
+          { "type": "template", "key": "name", "value": "ecommerce.items" },
+          { "type": "integer", "key": "dataLayerVersion", "value": "2" }
+        ],
+        "fingerprint": "0",
+        "parentFolderId": "14"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "variableId": "13",
+        "name": "CJS - Meta Pixel Contents",
+        "type": "jsm",
+        "parameter": [
+          {
+            "type": "template",
+            "key": "javascript",
+            "value": "function() {\n  var ecommerce = {{DLV - ecommerce}};\n  if (!ecommerce || !ecommerce.items) return [];\n  return ecommerce.items.map(function(item) {\n    return {\n      id: item.item_id || '',\n      quantity: item.quantity || 1,\n      item_price: item.price || 0\n    };\n  });\n}"
+          }
+        ],
+        "fingerprint": "0",
+        "parentFolderId": "30"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "variableId": "14",
+        "name": "CJS - TikTok Pixel Contents",
+        "type": "jsm",
+        "parameter": [
+          {
+            "type": "template",
+            "key": "javascript",
+            "value": "function() {\n  var ecommerce = {{DLV - ecommerce}};\n  if (!ecommerce || !ecommerce.items) return [];\n  return ecommerce.items.map(function(item) {\n    return {\n      content_id: item.item_id || '',\n      content_name: item.item_name || '',\n      content_type: 'product',\n      quantity: item.quantity || 1,\n      price: item.price || 0\n    };\n  });\n}"
+          }
+        ],
+        "fingerprint": "0",
+        "parentFolderId": "30"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "variableId": "15",
+        "name": "CJS - X Pixel Contents",
+        "type": "jsm",
+        "parameter": [
+          {
+            "type": "template",
+            "key": "javascript",
+            "value": "function() {\n  var ecommerce = {{DLV - ecommerce}};\n  if (!ecommerce || !ecommerce.items) return [];\n  return ecommerce.items.map(function(item) {\n    return {\n      content_id: item.item_id || '',\n      content_name: item.item_name || '',\n      content_price: item.price || 0,\n      num_items: item.quantity || 1,\n      content_type: item.item_category || 'product'\n    };\n  });\n}"
+          }
+        ],
+        "fingerprint": "0",
+        "parentFolderId": "30"
+      }
+    ],
+    "builtInVariable": [
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "pageUrl", "name": "Page URL" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "pageHostname", "name": "Page Hostname" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "pagePath", "name": "Page Path" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "referrer", "name": "Referrer" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "event", "name": "Event" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "clickElement", "name": "Click Element" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "clickClasses", "name": "Click Classes" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "clickId", "name": "Click ID" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "clickUrl", "name": "Click URL" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "clickText", "name": "Click Text" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "formElement", "name": "Form Element" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "formId", "name": "Form ID" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "formClasses", "name": "Form Classes" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "formUrl", "name": "Form URL" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "scrollDepthThreshold", "name": "Scroll Depth Threshold" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "scrollDepthUnits", "name": "Scroll Depth Units" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "scrollDepthDirection", "name": "Scroll Depth Direction" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "debugMode", "name": "Debug Mode" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "randomNumber", "name": "Random Number" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "containerId", "name": "Container ID" }
+    ],
+    "folder": [
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "folderId": "10", "name": "GA4", "fingerprint": "0" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "folderId": "11", "name": "Meta", "fingerprint": "0" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "folderId": "12", "name": "Clarity", "fingerprint": "0" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "folderId": "13", "name": "Google Ads", "fingerprint": "0" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "folderId": "14", "name": "GA4 - Ecommerce", "fingerprint": "0" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "folderId": "15", "name": "TikTok", "fingerprint": "0" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "folderId": "16", "name": "X", "fingerprint": "0" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "folderId": "20", "name": "_Global", "fingerprint": "0" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "folderId": "30", "name": "Utilities", "fingerprint": "0" }
+    ],
+    "fingerprint": "0",
+    "tagManagerUrl": ""
+  }
+}

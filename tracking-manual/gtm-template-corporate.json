@@ -1,0 +1,284 @@
+{
+  "exportFormatVersion": 2,
+  "exportTime": "2026-02-22 00:00:00",
+  "containerVersion": {
+    "path": "accounts/{ACCOUNT_ID}/containers/{CONTAINER_ID}/versions/0",
+    "accountId": "{ACCOUNT_ID}",
+    "containerId": "{CONTAINER_ID}",
+    "containerVersionId": "0",
+    "name": "Initial Setup - Corporate",
+    "description": "GA4 + Clarity: コーポレートサイト / ホームページ向け基本構成",
+    "container": {
+      "path": "accounts/{ACCOUNT_ID}/containers/{CONTAINER_ID}",
+      "accountId": "{ACCOUNT_ID}",
+      "containerId": "{CONTAINER_ID}",
+      "name": "{SITE_DOMAIN}",
+      "publicId": "{GTM_PUBLIC_ID}",
+      "usageContext": ["web"],
+      "fingerprint": "0",
+      "tagManagerUrl": ""
+    },
+    "tag": [
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "tagId": "1",
+        "name": "GA4 - Config",
+        "type": "googtag",
+        "parameter": [
+          { "type": "template", "key": "tagId", "value": "{{Const - GA4 Measurement ID}}" }
+        ],
+        "firingTriggerId": ["2147479573"],
+        "tagFiringOption": "oncePerEvent",
+        "monitoringMetadata": { "type": "map" },
+        "consentSettings": { "consentStatus": "notSet" },
+        "fingerprint": "0",
+        "parentFolderId": "10"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "tagId": "2",
+        "name": "Clarity - Base",
+        "type": "cvt_CLARITY_TEMPLATE_ID",
+        "parameter": [
+          { "type": "template", "key": "projectId", "value": "{{Const - Clarity Project ID}}" }
+        ],
+        "firingTriggerId": ["2147479553"],
+        "tagFiringOption": "oncePerEvent",
+        "monitoringMetadata": { "type": "map" },
+        "consentSettings": { "consentStatus": "notSet" },
+        "fingerprint": "0",
+        "parentFolderId": "12"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "tagId": "3",
+        "name": "GA4 - Event - scroll",
+        "type": "gaawe",
+        "parameter": [
+          { "type": "tagReference", "key": "measurementId", "value": "GA4 - Config" },
+          { "type": "template", "key": "eventName", "value": "scroll" },
+          {
+            "type": "list",
+            "key": "eventParameters",
+            "list": [
+              {
+                "type": "map",
+                "map": [
+                  { "type": "template", "key": "name", "value": "percent_scrolled" },
+                  { "type": "template", "key": "value", "value": "{{Scroll Depth Threshold}}" }
+                ]
+              }
+            ]
+          }
+        ],
+        "firingTriggerId": ["1"],
+        "tagFiringOption": "unlimited",
+        "monitoringMetadata": { "type": "map" },
+        "consentSettings": { "consentStatus": "notSet" },
+        "fingerprint": "0",
+        "parentFolderId": "10"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "tagId": "4",
+        "name": "GA4 - Event - click_cta",
+        "type": "gaawe",
+        "parameter": [
+          { "type": "tagReference", "key": "measurementId", "value": "GA4 - Config" },
+          { "type": "template", "key": "eventName", "value": "click_cta" },
+          {
+            "type": "list",
+            "key": "eventParameters",
+            "list": [
+              {
+                "type": "map",
+                "map": [
+                  { "type": "template", "key": "name", "value": "link_url" },
+                  { "type": "template", "key": "value", "value": "{{Click URL}}" }
+                ]
+              },
+              {
+                "type": "map",
+                "map": [
+                  { "type": "template", "key": "name", "value": "link_text" },
+                  { "type": "template", "key": "value", "value": "{{Click Text}}" }
+                ]
+              }
+            ]
+          }
+        ],
+        "firingTriggerId": ["2"],
+        "tagFiringOption": "oncePerEvent",
+        "monitoringMetadata": { "type": "map" },
+        "consentSettings": { "consentStatus": "notSet" },
+        "fingerprint": "0",
+        "parentFolderId": "10"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "tagId": "5",
+        "name": "GA4 - Event - phone_call_click",
+        "type": "gaawe",
+        "parameter": [
+          { "type": "tagReference", "key": "measurementId", "value": "GA4 - Config" },
+          { "type": "template", "key": "eventName", "value": "phone_call_click" },
+          {
+            "type": "list",
+            "key": "eventParameters",
+            "list": [
+              {
+                "type": "map",
+                "map": [
+                  { "type": "template", "key": "name", "value": "phone_call_location" },
+                  { "type": "template", "key": "value", "value": "{{CJS - Phone Call Location}}" }
+                ]
+              },
+              {
+                "type": "map",
+                "map": [
+                  { "type": "template", "key": "name", "value": "link_text" },
+                  { "type": "template", "key": "value", "value": "{{Click Text}}" }
+                ]
+              }
+            ]
+          }
+        ],
+        "firingTriggerId": ["3"],
+        "tagFiringOption": "oncePerEvent",
+        "monitoringMetadata": { "type": "map" },
+        "consentSettings": { "consentStatus": "notSet" },
+        "fingerprint": "0",
+        "parentFolderId": "10"
+      }
+    ],
+    "trigger": [
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "triggerId": "1",
+        "name": "Scroll - 25/50/75/100 Percent",
+        "type": "scrollDepth",
+        "parameter": [
+          { "type": "boolean", "key": "verticalThresholdOn", "value": "true" },
+          { "type": "template", "key": "verticalThresholdsPercent", "value": "25,50,75,100" },
+          { "type": "boolean", "key": "horizontalThresholdOn", "value": "false" },
+          { "type": "template", "key": "triggerStartOption", "value": "WINDOW_LOAD" }
+        ],
+        "fingerprint": "0",
+        "parentFolderId": "20"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "triggerId": "2",
+        "name": "Click - CTA Button",
+        "type": "click",
+        "filter": [
+          {
+            "type": "contains",
+            "parameter": [
+              { "type": "template", "key": "arg0", "value": "{{Click Classes}}" },
+              { "type": "template", "key": "arg1", "value": "cta" }
+            ]
+          }
+        ],
+        "fingerprint": "0",
+        "parentFolderId": "20"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "triggerId": "3",
+        "name": "Link Click - Phone Call",
+        "type": "linkClick",
+        "filter": [
+          {
+            "type": "startsWith",
+            "parameter": [
+              { "type": "template", "key": "arg0", "value": "{{Click URL}}" },
+              { "type": "template", "key": "arg1", "value": "tel:" }
+            ]
+          }
+        ],
+        "fingerprint": "0",
+        "parentFolderId": "20"
+      }
+    ],
+    "variable": [
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "variableId": "1",
+        "name": "Const - GA4 Measurement ID",
+        "type": "c",
+        "parameter": [
+          { "type": "template", "key": "value", "value": "{GA4_MEASUREMENT_ID}" }
+        ],
+        "fingerprint": "0",
+        "parentFolderId": "10"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "variableId": "2",
+        "name": "Const - Clarity Project ID",
+        "type": "c",
+        "parameter": [
+          { "type": "template", "key": "value", "value": "{CLARITY_PROJECT_ID}" }
+        ],
+        "fingerprint": "0",
+        "parentFolderId": "12"
+      },
+      {
+        "accountId": "{ACCOUNT_ID}",
+        "containerId": "{CONTAINER_ID}",
+        "variableId": "3",
+        "name": "CJS - Phone Call Location",
+        "type": "jsm",
+        "parameter": [
+          {
+            "type": "template",
+            "key": "javascript",
+            "value": "function() {\n  var el = {{Click Element}};\n  if (!el) return 'unknown';\n  var section = el.closest('[data-tracking-section]');\n  return section ? section.getAttribute('data-tracking-section') : 'other';\n}"
+          }
+        ],
+        "fingerprint": "0",
+        "parentFolderId": "20"
+      }
+    ],
+    "builtInVariable": [
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "pageUrl", "name": "Page URL" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "pageHostname", "name": "Page Hostname" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "pagePath", "name": "Page Path" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "referrer", "name": "Referrer" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "event", "name": "Event" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "clickElement", "name": "Click Element" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "clickClasses", "name": "Click Classes" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "clickId", "name": "Click ID" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "clickUrl", "name": "Click URL" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "clickText", "name": "Click Text" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "formElement", "name": "Form Element" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "formId", "name": "Form ID" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "formClasses", "name": "Form Classes" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "formUrl", "name": "Form URL" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "scrollDepthThreshold", "name": "Scroll Depth Threshold" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "scrollDepthUnits", "name": "Scroll Depth Units" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "scrollDepthDirection", "name": "Scroll Depth Direction" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "debugMode", "name": "Debug Mode" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "randomNumber", "name": "Random Number" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "type": "containerId", "name": "Container ID" }
+    ],
+    "folder": [
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "folderId": "10", "name": "GA4", "fingerprint": "0" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "folderId": "12", "name": "Clarity", "fingerprint": "0" },
+      { "accountId": "{ACCOUNT_ID}", "containerId": "{CONTAINER_ID}", "folderId": "20", "name": "_Global", "fingerprint": "0" }
+    ],
+    "fingerprint": "0",
+    "tagManagerUrl": ""
+  }
+}
