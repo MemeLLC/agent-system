@@ -8,39 +8,14 @@
 
 ```
 agent-system/
-├── .agents/                  # エージェントシステム本体（Single Source of Truth）
-│   ├── INSTRUCTIONS.md       # このファイル。プロジェクト共通指示書
-│   ├── skills/               # マーケティング・開発などに関するスキル
-│   │   ├── <skill-name>/
-│   │   │   ├── SKILL.md      # スキル定義・プロンプト
-│   │   │   ├── references/   # 参考資料（任意）
-│   │   │   └── scripts/      # 自動化スクリプト（任意）
-│   │   └── ...
-│   └── tools/                # 外部ツール連携
-│       ├── REGISTRY.md       # ツール一覧・能力マトリクス
-│       └── integrations/     # 16サービスの連携ガイド（*.md）
-│
 ├── contexts/                 # 事業に関する情報（項目ごとに整理）
+│   ├── data/                 # 各種データ（CSV、JSON、Excelなど）
 │   ├── research/             # 市場調査・競合分析などのリサーチ成果物
 │   └── strategy/             # 戦略ドキュメント・意思決定の記録
 |   └── meetings/             # 会議ドキュメント・会議の記録
 │
-├── dev/                      # プログラミング成果物
-│   │                         # LP、Webアプリ、ホームページ、サーバーなど
-│   │                         # 各アプリは独立したサブディレクトリとして管理
-│   └── <project-name>/       # 各種開発関連プロジェクト（モノレポ推奨）
+├── dev/                      # プログラミング成果物(LP、Webアプリ、ホームページ、サーバーなど)　モノレポで管理
 │
-├── .claude/                  # Claude Code 用設定（.agents/ へのシンボリックリンク）
-│   ├── CLAUDE.md → ../.agents/INSTRUCTIONS.md
-│   ├── settings.json         # 権限・フック設定
-│   ├── skills → ../.agents/skills
-│   └── tools → ../.agents/tools
-│
-├── .codex/                   # Codex 用設定（.agents/ へのシンボリックリンク）
-│   ├── AGENTS.md → ../.agents/INSTRUCTIONS.md
-│   ├── config.toml           # モデル・承認ポリシー設定
-│   ├── skills → ../.agents/skills
-│   └── tools → ../.agents/tools
 │
 ├── .env                      # APIキー（GEMINI_API_KEY, XAI_API_KEY）
 └── .gitignore
