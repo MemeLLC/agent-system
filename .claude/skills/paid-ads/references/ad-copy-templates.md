@@ -1,1 +1,0 @@
-../../../../.agents/skills/paid-ads/references/ad-copy-templates.md
